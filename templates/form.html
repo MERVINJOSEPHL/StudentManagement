@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Student</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      form {
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px;
+        text-align: left;
+      }
+
+      div {
+        margin-bottom: 10px;
+      }
+
+      label {
+        display: inline-block;
+        width: 150px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="checkbox"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+      }
+
+      input[type="submit"] {
+        background-color: #0074d9; /* Blue color for the "Submit" button */
+        color: #fff; /* White text color for the button */
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #0056b3; /* Darker blue color on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/student/create" method="POST" id="create-form">
+      <div>
+        <label>Roll Number:</label>
+        <input type="text" name="roll" required />
+      </div>
+      <div>
+        <label>First Name:</label>
+        <input type="text" name="f_name" required />
+      </div>
+      <div>
+        <label>Last Name:</label>
+        <input type="text" name="l_name" />
+      </div>
+      <div>
+        <label>Select Courses:</label>
+        <input type="checkbox" name="courses1" value="course_1" />
+        <label>MAD I</label>
+        <input type="checkbox" name="courses2" value="course_2" />
+        <label>DBMS</label>
+        <input type="checkbox" name="courses3" value="course_3" />
+        <label>PDSA</label>
+        <input type="checkbox" name="courses4" value="course_4" />
+        <label>BDM</label>
+      </div>
+      <div>
+        <input type="submit" value="Submit">
+      </div>
+    </form>
+  </body>
+</html>

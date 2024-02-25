@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      h1 {
+        color: #333; /* Dark gray color for the heading */
+      }
+
+      table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+      }
+
+      th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+
+      th {
+        background-color: #0074d9; /* Blue color for table header */
+        color: #fff; /* White text color for table header */
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2; /* Light gray background for even rows */
+      }
+
+      a {
+        text-decoration: none;
+        color: #0074d9; /* Blue color for links */
+        margin-right: 10px;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      a.add-student {
+        background-color: #0074d9; /* Blue color for the "Add Student" link */
+        color: #fff; /* White text color for the link */
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+      }
+
+      a.add-student:hover {
+        background-color: #0056b3; /* Darker blue color on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Student List</h1>
+    <table>
+      <tr>
+        <th>SNo</th>
+        <th>Roll Number</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Actions</th>
+      </tr>
+      {% for i in student %}
+      <tr>
+        <td>{{ i["student_id"] }}</td>
+        <td>
+          <a href="/student/{{ i['student_id'] }}">{{ i["roll_number"] }}</a>
+        </td>
+        <td>{{ i["first_name"] }}</td>
+        <td>{{ i["last_name"] }}</td>
+        <td>
+          <a href="/student/{{ i['student_id'] }}/update">Update</a>
+          <a href="/student/{{ i['student_id'] }}/delete">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <pre>    <a href="/student/create" class="add-student">+ Add Student</a></pre>
+  </body>
+</html>

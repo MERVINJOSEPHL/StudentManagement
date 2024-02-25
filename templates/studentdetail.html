@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      h1 {
+        color: #333; /* Dark gray color for the heading */
+      }
+
+      table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+      }
+
+      th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+
+      th {
+        background-color: #0074d9; /* Blue color for table header */
+        color: #fff; /* White text color for table header */
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2; /* Light gray background for even rows */
+      }
+
+      a {
+        text-decoration: none;
+        background-color: #0074d9; /* Blue color for links */
+        color: #fff; /* White text color for the links */
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+        display: inline-block;
+        margin-top: 10px;
+      }
+
+      a:hover {
+        background-color: #0056b3; /* Darker blue color on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <center><h1>Student Details</h1></center>
+    <table id="personal-details">
+      <tr>
+        <th>Roll Number</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+      </tr>
+      <tr>
+        <td>{{ student["roll_number"] }}</td>
+        <td>{{ student["first_name"] }}</td>
+        <td>{{ student["last_name"] }}</td>
+      </tr>
+    </table>
+    <center><h1>Enrollment List</h1></center>
+    <table id="enroll-table">
+      <tr>
+        <th>S. No.</th>
+        <th>Course Code</th>
+        <th>Course Name</th>
+        <th>Course Description</th>
+      </tr>
+      {% for i in range(course|length) %}
+      <tr>
+        <td>{{ course[i]["course_id"] }}</td>
+        <td>{{ course[i]["course_code"] }}</td>
+        <td>{{ course[i]["course_name"] }}</td>
+        <td>{{ course[i]["course_description"] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <a href="/" class="go-back">Go Back</a>
+  </body>
+</html>
